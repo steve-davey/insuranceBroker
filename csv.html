@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Title</title>
+  <h1>Title</h1>
+  <style>
+    td {
+      max-width: 15vw;
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="myForm">
+    <input type="file" id="csvFile" accept=".csv" />
+    <br />
+    <input type="file" id="csvFile" accept=".csv" />
+    <br />
+    <input type="submit" value="Submit" />
+  </form>
+
+  <script>
+
+    function createTables2() {
+      let table = document.createElement('table');
+      for (row of rows) {
+        table.insertRow();
+        for (let cell of row) {
+
+          let newCell = table.rows[table.rows.length - 1].insertCell();
+          newCell.textContent = cell;
+        }
+      }
+      document.body.appendChild(table);
+
+    }
+
+    function createTables() {
+
+      let divTable = document.createElement("div");
+      divTable.id = "tablediv";
+
+      let tables = document.getElementsByTagName("table");
+      while (tables.length > 0) divTable.append(tables[0]);
+
+      let body = document.querySelector("body");
+      body.append(divTable);
+
+    }
+
+  </script>
+
+  <div class="myTables">
+    <button onclick="createTables()">Create table</button>
+  </div>
+
+</body>
+
+</html>
